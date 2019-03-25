@@ -20,4 +20,8 @@ export default class UserInput {
     getMercuryAge(age) {
         return Math.round(age / .24);
     }
+
+    getVenusAge(age) {
+        return Math.round(age / .62);
+    }
 }
