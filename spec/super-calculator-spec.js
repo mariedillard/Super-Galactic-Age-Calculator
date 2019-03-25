@@ -14,6 +14,11 @@ describe('UserInput', function () {
         let age = testUser.getAge();
         expect(testUser.getVenusAge(age)).toEqual(40);
     });
+    it('should return their age in Mars years', function() {
+        let testUser = new UserInput(1994, 2, 14, 75);
+        let age = testUser.getAge();
+        expect(testUser.getMarsAge(age)).toEqual(13);
+    });
 });
 //Returns their age in Mars years. (A Mars year is 1.88 Earth years.)
 //Returns their age in Jupiter years. (A Jupiter year is 11.86 Earth years.)
