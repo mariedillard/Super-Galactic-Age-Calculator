@@ -28,4 +28,17 @@ export default class UserInput {
     getMarsAge(age) {
         return Math.round(age / 1.88);
     }
+    
+    getJupiterAge(age) {
+        return Math.round(age / 11.86)
+    }
+
+    getLifeExpectancy(age) {
+        if (age < this.lifeExpectancy) {
+            return this.lifeExpectancy - age;
+        } else {
+            return age - this.lifeExpectancy;
+        }
+
+    }
 }

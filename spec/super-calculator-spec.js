@@ -19,8 +19,31 @@ describe('UserInput', function () {
         let age = testUser.getAge();
         expect(testUser.getMarsAge(age)).toEqual(13);
     });
+    it('should return their age in Jupiter years', function() {
+        let testUser = new UserInput(1994, 2, 14, 75);
+        let age = testUser.getAge();
+        expect(testUser.getJupiterAge(age)).toEqual(2);
+    });
+    it('should determine how many years a user has left to live on each planet', function() {
+        let testUser = new UserInput(1994, 2, 14, 75);
+        let age = testUser.getAge();
+        let lifeExpectancy = testUser.getLifeExpectancy(age);
+        let jupiterExpectancy = testUser.getJupiterAge(lifeExpectancy);
+        let marsExpectancy = testUser.getMarsAge(lifeExpectancy);
+        let venusExpectancy = testUser.getVenusAge(lifeExpectancy);
+        let mercuryExpectancy = testUser.getMercuryAge(lifeExpectancy);
+        expect(lifeExpectancy, jupiterExpectancy, marsExpectancy, venusExpectancy, mercuryExpectancy).toEqual(50, 5, 29, 89, 229);
+    });
+    it('should determine how many years a user has outlived on a planet', function() {
+        let testUser = new UserInput(1994, 2, 14, 20);
+        let age = testUser.getAge();
+        let lifeExpectancy = testUser.getLifeExpectancy(age);
+        let jupiterExpectancy = testUser.getJupiterAge(lifeExpectancy);
+        let marsExpectancy = testUser.getMarsAge(lifeExpectancy);
+        let venusExpectancy = testUser.getVenusAge(lifeExpectancy);
+        let mercuryExpectancy = testUser.getMercuryAge(lifeExpectancy);
+        expect(lifeExpectancy, jupiterExpectancy, marsExpectancy, venusExpectancy, mercuryExpectancy).toEqual(5, 0, 3, 8, 21);
+    });
 });
-//Returns their age in Mars years. (A Mars year is 1.88 Earth years.)
-//Returns their age in Jupiter years. (A Jupiter year is 11.86 Earth years.)
 //Determines how many years a user has left to live on each planet.
 //If a user has already surpassed the average life expectancy, return the number of years they have lived past the life expectancy.
