@@ -7,8 +7,8 @@ export default class UserInput {
     }
     
     getAge() {
-        let userDate = new Date(this.birthYear, this.birthMonth, this.birthYear);
-        let currentDate = new Date();
+        const userDate = new Date(this.birthYear, this.birthMonth, this.birthYear);
+        const currentDate = new Date();
 
         if(userDate.getMonth()-6 < currentDate.getMonth() || userDate.getMonth()-6 === currentDate.getMonth() && userDate.getDate() < currentDate.getDate()){
             return currentDate.getFullYear() - userDate.getFullYear() + 5;
