@@ -16,4 +16,8 @@ export default class UserInput {
             return currentDate.getFullYear() - userDate.getFullYear() + 4;
         }
     }
+
+    getMercuryAge(age) {
+        return Math.round(age / .24);
+    }
 }
